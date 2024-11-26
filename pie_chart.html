@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-86b8a11db4bc14ca94bfd453edfb7de0"}, "mark": {"type": "arc", "innerRadius": 75}, "encoding": {"color": {"field": "Selected sociodemographic characteristics", "scale": {"scheme": "viridis"}, "title": "Sociodemographic Characteristics", "type": "nominal"}, "theta": {"field": "Percentage", "title": "Percentage", "type": "quantitative"}, "tooltip": [{"field": "Selected sociodemographic characteristics", "type": "nominal"}, {"field": "VALUE", "title": "Raw Value", "type": "quantitative"}, {"field": "Percentage", "format": ".2f", "title": "Percentage", "type": "quantitative"}]}, "height": 400, "title": "Sociodemographic Distribution in Ontario (2020)", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-86b8a11db4bc14ca94bfd453edfb7de0": [{"Selected sociodemographic characteristics": "Arab", "VALUE": 473.9, "Percentage": 13.060133384776496}, {"Selected sociodemographic characteristics": "Black", "VALUE": 560.6, "Percentage": 15.449484649727166}, {"Selected sociodemographic characteristics": "Chinese", "VALUE": 527.9, "Percentage": 14.54831064322328}, {"Selected sociodemographic characteristics": "Filipino", "VALUE": 525.5, "Percentage": 14.482169431736757}, {"Selected sociodemographic characteristics": "Latin American", "VALUE": 489.8, "Percentage": 13.498318910874715}, {"Selected sociodemographic characteristics": "South Asian", "VALUE": 561.0, "Percentage": 15.46050818497492}, {"Selected sociodemographic characteristics": "Southeast Asian", "VALUE": 489.9, "Percentage": 13.501074794686655}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
